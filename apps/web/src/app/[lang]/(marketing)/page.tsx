@@ -25,8 +25,7 @@ export default function MarketingPage() {
           </div>
 
           <h1 className="mx-auto my-4 max-w-xl text-center text-lg font-semibold !leading-tight md:mb-8 md:text-2xl lg:text-3xl">
-            {t('headline-p1')} <br />
-            <GradientHeadline title={t('headline-p2')} />.
+            {t('headline-p1')} <GradientHeadline title={t('headline-p2')} />.
           </h1>
 
           <GetStartedButton href="/login" />

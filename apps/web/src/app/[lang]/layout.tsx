@@ -21,8 +21,10 @@ interface Props {
 }
 
 export const generateMetadata = ({ params: { lang } }: Props): Metadata => {
-  const enDescription = 'Nurturing Vietnamese Talents';
-  const viDescription = 'Ươm Mầm Tài Năng Việt';
+  const enDescription =
+    'Nurturing Vietnamese talents, fostering global tech leaders';
+  const viDescription =
+    'Ươm mầm tài năng Việt, nuôi dưỡng những nhà lãnh đạo công nghệ toàn cầu';
 
   const description = lang === 'vi' ? viDescription : enDescription;
 
