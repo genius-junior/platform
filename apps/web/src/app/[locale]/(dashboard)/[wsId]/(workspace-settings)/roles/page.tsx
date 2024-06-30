@@ -1,11 +1,10 @@
 import { roleColumns } from './columns';
-import RoleEditDialog from './edit-dialog';
+import { RoleForm } from './form';
 import { CustomDataTable } from '@/components/custom-data-table';
 import { WorkspaceRole } from '@/types/db';
 import { createClient } from '@/utils/supabase/server';
-import { Button } from '@repo/ui/components/ui/button';
+import FeatureSummary from '@repo/ui/components/ui/custom/feature-summary';
 import { Separator } from '@repo/ui/components/ui/separator';
-import { Plus } from 'lucide-react';
 import { getTranslations } from 'next-intl/server';
 
 interface Props {
@@ -24,36 +23,25 @@ export default async function WorkspaceRolesPage({
   searchParams,
 }: Props) {
   const { data: rawData, count } = await getRoles(wsId, searchParams);
-  const t = await getTranslations('ws-roles');
+  const t = await getTranslations();
 
   const data = rawData.map((role) => ({
     ...role,
+    ws_id: wsId,
     user_count: 0, // TODO: get user count
   }));
 
   return (
     <>
-      <div className="border-border bg-foreground/5 flex flex-col justify-between gap-4 rounded-lg border p-4 md:flex-row md:items-start">
-        <div>
-          <h1 className="text-2xl font-bold">{t('roles')}</h1>
-          <p className="text-foreground/80">{t('description')}</p>
-        </div>
-
-        <div className="flex flex-col items-center justify-center gap-2 md:flex-row">
-          <RoleEditDialog
-            data={{
-              ws_id: wsId,
-            }}
-            trigger={
-              <Button>
-                <Plus className="mr-2 h-5 w-5" />
-                {t('create_role')}
-              </Button>
-            }
-            submitLabel={t('create_role')}
-          />
-        </div>
-      </div>
+      <FeatureSummary
+        pluralTitle={t('ws-roles.plural')}
+        singularTitle={t('ws-roles.singular')}
+        description={t('ws-roles.description')}
+        createTitle={t('ws-roles.create')}
+        createDescription={t('ws-roles.create_description')}
+        form={<RoleForm wsId={wsId} />}
+        requireExpansion
+      />
       <Separator className="my-4" />
       <CustomDataTable
         columnGenerator={roleColumns}
@@ -81,9 +69,12 @@ async function getRoles(
 
   const queryBuilder = supabase
     .from('workspace_roles')
-    .select('*', {
-      count: 'exact',
-    })
+    .select(
+      'id, name, permissions:workspace_role_permissions(id:permission, enabled), created_at',
+      {
+        count: 'exact',
+      }
+    )
     .eq('ws_id', wsId)
     .order('created_at', { ascending: false });
 
