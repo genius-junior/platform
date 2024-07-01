@@ -1,11 +1,10 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 export default function Navlinks() {
-  const t = useTranslations('common');
+  // const t = useTranslations('common');
   const pathname = usePathname();
 
   if (pathname === '/calendar/meet-together') return null;
@@ -18,12 +17,27 @@ export default function Navlinks() {
 
   return (
     <div className="left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 transform items-center justify-center gap-4 md:absolute md:flex">
-      <Link
+      <Link href="#" className="opacity-50 hover:opacity-100">
+        Chương trình học
+      </Link>
+      <Link href="#" className="opacity-50 hover:opacity-100">
+        Hội trường danh vọng
+      </Link>
+      <Link href="#" className="opacity-50 hover:opacity-100">
+        Tin tức
+      </Link>
+      <Link href="#" className="opacity-50 hover:opacity-100">
+        Sự kiện
+      </Link>
+      <Link href="#" className="opacity-50 hover:opacity-100">
+        Về chúng tôi
+      </Link>
+      {/* <Link
         href="/calendar/meet-together"
         className="opacity-50 hover:opacity-100"
       >
         {t('meet-together')}
-      </Link>
+      </Link> */}
       {/* <Link
         href="https://docs.tuturuuu.com"
         className="opacity-50 hover:opacity-100"

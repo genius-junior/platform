@@ -1,5 +1,9 @@
 {
     "common": {
+        "days": "days",
+        "hours": "hours",
+        "minutes": "minutes",
+        "seconds": "seconds",
         "and": "and",
         "login": "Login",
         "maximize": "Maximize",

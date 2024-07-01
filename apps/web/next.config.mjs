@@ -19,6 +19,14 @@ const nextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'vohoangphuc.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'next.vohoangphuc.com',
+      },
+      {
+        protocol: 'https',
         hostname: 'yjbjpmwbfimjcdsjxfst.supabase.co',
       },
       {

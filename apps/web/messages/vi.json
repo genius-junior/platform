@@ -1,5 +1,9 @@
 {
     "common": {
+        "days": "ngày",
+        "hours": "giờ",
+        "minutes": "phút",
+        "seconds": "giây",
         "and": "và",
         "login": "Đăng nhập",
         "maximize": "Tối ưu hóa",
