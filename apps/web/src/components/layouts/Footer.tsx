@@ -1,32 +1,14 @@
-import Slogan from './slogan';
 import { Separator } from '@repo/ui/components/ui/separator';
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default async function Footer() {
-  const t = useTranslations();
+  const t = await getTranslations();
 
   return (
     <div className="w-full text-center">
-      <Separator className="bg-foreground/5 mb-8" />
-      <div className="flex flex-col items-center p-8">
-        <Slogan />
-
-        <div className="text-foreground/80 mt-2 font-semibold md:text-xl">
-          {t('common.get-started-desc')}
-        </div>
-
-        <Link
-          href="/login"
-          className="bg-foreground/5 text-foreground hover:bg-foreground/10 mt-4 w-full max-w-xs rounded border px-8 py-2 font-semibold transition duration-300"
-        >
-          {t('common.get-started')}
-        </Link>
-      </div>
-
       <Separator className="bg-foreground/5 my-8" />
-
       <div className="flex flex-col items-center justify-between gap-4 px-4 md:gap-8 md:px-32 lg:flex-row lg:gap-16 xl:px-64">
         <div className="flex flex-col items-center justify-center gap-4">
           <Link
