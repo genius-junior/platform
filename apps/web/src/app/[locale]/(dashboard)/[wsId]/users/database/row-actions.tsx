@@ -219,8 +219,8 @@ export function UserRowActions({ row, href }: UserRowActionsProps) {
                     <FormMessage />
                     <FormDescription>
                       The identification number of this user in your workspace.
-                      This is automatically managed by Tuturuuu, and cannot be
-                      changed.
+                      This is automatically managed by Genius Junior, and cannot
+                      be changed.
                     </FormDescription>
                   </FormItem>
                 )}
