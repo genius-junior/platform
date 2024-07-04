@@ -60,7 +60,7 @@ export default async function MarketingPage() {
         <div className="flex w-full max-w-6xl flex-col gap-6 px-3 text-black">
           <div className="relative text-center text-2xl font-bold md:text-4xl">
             <div className="bg-red pointer-events-none absolute inset-0 z-50 h-full w-full bg-gradient-to-r from-blue-100/50 via-green-200/20 to-red-200/50 blur-xl"></div>
-            Thành công là một{' '}
+            Thành công là HAI{' '}
             <span className="text-emerald-700 underline decoration-wavy underline-offset-4">
               hành trình
             </span>
